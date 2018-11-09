@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+################################################################################
+# All the stuff that you need to put in .bashrc, to run Genfit II. With it, you#
+# can decide for each shell whether or not this should become an explora shell #
+#                                                                              #
+# Use 'source <thisfile>' to load it.                                          #
+#                                                                              #
+# Execute before using Genfit. Or, add it to your .bashrc ...                  #
+#                                                                              #
+# (c) Philipp Bielefeldt, 2017                                                 #
+################################################################################
+
+
+############
+# FOPIROOT #
+############
+
+# Nescessary for fopiroot etc.
+export VMCWORKDIR=$HOME/g2fopiroot
+export SIMPATH=$HOME/FairExternalPackages_build
+export ROOTSYS=$SIMPATH/bin/
+export LD_LIBRARY_PATH=${SIMPATH}/lib:${SIMPATH}/lib64:${SIMPATH}/lib/root:$LD_LIBRARY_PATH
+export RAVEPATH=$HOME/rave/rave-0.6.24
+export FOPI2ROOT=$HOME/fopi2root
+
+# For PyROOT:
+export PYTHONPATH=$SIMPATH/lib/root:$PYTHONPATH
+
+# CL HEP info
+export CLHEP_PATH=$HOME/clhep
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CLHEP_PATH}/build/lib
+
+
+# TEMPORARY
+# While working with the seperated genfit2 build, this is its libs:
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/g2fopiroot/genfit2checkout/build/lib
+
+# The Genfit2 makeEnv.sh needs this defined:
+export GENFIT=$HOME/g2fopiroot/genfit2checkout/
+
+# This is the location of the RAVE libraries -- however, I am not
+# sure whether it should be given directly...
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${RAVEPATH}/src/.libs
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${RAVEPATH}/src/RaveBase/.libs
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${RAVEPATH}/src/RecoBTag/.libs
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${RAVEPATH}/src/RecoVertex/.libs
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${RAVEPATH}/src/RecoVertex/KinematicFit/.libs
+export PATH=$PATH:$ROOTSYS
+
+# Make GCC look for header files in the weird fairroot structure
+
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/FairExternalPackages_build/include/root/
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/FairExternalPackages_build/include/root/
+
+#export SIMPATH=$HOME/FairExternalPackages/
+export ROOTLIBS=$HOME/FairExternalPackages/tools/root/lib
+export LD_LIBRARY_PATH=$ROOTLIBS:$LD_LIBRARY_PATH
+
+
+#########
+# GEANT #
+#########
+
+# All the stuff that GEANT4 needs
+# according to some random webpage...
+
+export G4DATA=$HOME/FairExternalPackages_build/share/Geant4-10.0.2/data/
+export G4LEDATA=${G4DATA}/G4EMLOW6.35
+export G4LEVELGAMMADATA=${G4DATA}/PhotonEvaporation3.0
+export G4NEUTRONHPDATA=${G4DATA}/G4NDL4.4
+export G4RADIOACTIVEDATA=${G4DATA}/RadioactiveDecay4.0
+export G4ABLADATA=${G4DATA}/G4ABLA3.0
+export G4REALSURFACEDATA=${G4DATA}/RealSurface1.0
+export G4NEUTRONXSDATA=${G4DATA}/G4NEUTRONXS1.4
+export G4PIIDATA=${G4DATA}/G4PII1.3
+export G4SAIDXSDATA=${G4DATA}/G4SAIDDATA1.1
+
+# include self-built bins
+
+#PATH=$PATH:~/Genfit/build/bin/
+#PATH=$PATH:/usr/lib64/qt4/bin/
+#PATH=$PATH:$ROOTSYS
+

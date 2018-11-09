@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+################################################################################
+# All the stuff that Explora asks you to put in .bashrc (copied), so that one  #
+# can decide for each shell whether or not this should become an explora shell #
+#                                                                              #
+# Use 'source <thisfile>' to load it.                                          #
+#                                                                              #
+# Execute before using Explora. Or, add it to your .bashrc ...                 #
+#                                                                              #
+# (c) Philipp Bielefeldt, 2018                                                 #
+################################################################################
+
+# EXPLORA defaults (change to your liking ...)
+export EXPLORA_PATH=$HOME/Explora
+export EXPLORA_HOME=${EXPLORA_PATH}/explora_home
+export EXPLORA_ALLSOURCES=/localhome/$USER/allsources/build/
+
+#Geant3 for the virtual monte carlo stuff
+export G3SYS=${EXPLORA_ALLSOURCES}/Source/vmcg3/
+
+export LD_LIBRARY_PATH=/usr/local/lib:$EXPLORA_HOME/lib:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=$HOME/.explora/x86_64/3rdParty/lib/:$LD_LIBRARY_PATH
+export PATH=$EXPLORA_HOME/bin:$PATH
+
+# My stuff ...
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/bielefeldt/Explora/ConfigsRepo/fopi_testscript/dicts/
+
+# Allow linking against explora
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$EXPLORA_HOME/lib/
+
+
+# Source thistr16 configuration for allsources environment
+if test -e $EXPLORA_ALLSOURCES/thistr16.sh; then
+	echo -e "Found thistr16.sh"
+	source $EXPLORA_ALLSOURCES/thistr16.sh
+else
+	echo -e "\n [!] Could not find thistr16.sh! This is NOT EXPECTED! \n"
+fi
+
+# Be a bit verbose
+echo -e "\nDone. \n
+  EXPLORA_HOME : Set Explora home to $EXPLORA_HOME 
+  ROOTSYS : ROOT directory is in $ROOTSYS \n "
