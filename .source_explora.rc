@@ -38,6 +38,9 @@ else
 	echo -e "\n [!] Could not find thistr16.sh! This is NOT EXPECTED! \n"
 fi
 
+# I'll just add Geant4 here ...
+source ${HOME}/Geant4/install/bin/geant4.sh
+
 # Be a bit verbose
 echo -e "\nDone. \n
   EXPLORA_HOME : Set Explora home to $EXPLORA_HOME 
