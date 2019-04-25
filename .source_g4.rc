@@ -1,0 +1,25 @@
+################################################################################
+### Set up Geant4.                                                           ###
+### Should be compatible with the installation of Geant4 in FopiROOT, but    ###
+### using a stand-alone version of Geant. The path in the first line should  ###
+### point to the local installation of Geant. Alter it to your needs.        ###
+### In case of a FopiROOT installation, the path to the data directory will  ###
+### be similar to $HOME/FairExternalPackages_build/share/Geant4-10.X.X/data  ###
+###                                                                          ###
+### (C) Philipp Bielefeldt, Uni Bonn 2019                                    ###
+################################################################################
+
+export G4HOME=${HOME}/Geant4/install/
+export G4DATA=${G4HOME}/share/Geant4-10.5.0/data/
+
+export G4LEDATA=${G4DATA}/G4EMLOW6.35
+export G4LEVELGAMMADATA=${G4DATA}/PhotonEvaporation3.0
+export G4NEUTRONHPDATA=${G4DATA}/G4NDL4.4
+export G4RADIOACTIVEDATA=${G4DATA}/RadioactiveDecay4.0
+export G4ABLADATA=${G4DATA}/G4ABLA3.0
+export G4REALSURFACEDATA=${G4DATA}/RealSurface1.0
+export G4NEUTRONXSDATA=${G4DATA}/G4NEUTRONXS1.4
+export G4PIIDATA=${G4DATA}/G4PII1.3
+export G4SAIDXSDATA=${G4DATA}/G4SAIDDATA1.1
+
+source ${G4HOME}/bin/geant4.sh
