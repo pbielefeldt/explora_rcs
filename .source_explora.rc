@@ -8,16 +8,16 @@
 #                                                                              #
 # Execute before using Explora. Or, add it to your .bashrc ...                 #
 #                                                                              #
-# (c) Philipp Bielefeldt, 2018                                                 #
+# (c) Philipp Bielefeldt, 2019                                                 #
 ################################################################################
 
 # EXPLORA defaults (change to your liking ...)
-export EXPLORA_PATH=$HOME/Explora
-export EXPLORA_HOME=${EXPLORA_PATH}/explora_home
-export EXPLORA_ALLSOURCES=/localhome/$USER/allsources/build/
+#export EXPLORA_PATH=$HOME/Explora
+export EXPLORA_HOME=$HOME/Explora/explora_home
+export EXPLORA_ALLSOURCES=/localhome/$USER/allsources/install/
 
-#Geant3 for the virtual monte carlo stuff
-export G3SYS=${EXPLORA_ALLSOURCES}/Source/vmcg3/
+#install for the virtual monte carlo stuff
+export G3SYS=${EXPLORA_ALLSOURCES}/share/Geant3-2.6.0/
 
 export LD_LIBRARY_PATH=/usr/local/lib:$EXPLORA_HOME/lib:$LD_LIBRARY_PATH
 #export LD_LIBRARY_PATH=$HOME/.explora/x86_64/3rdParty/lib/:$LD_LIBRARY_PATH
@@ -25,6 +25,13 @@ export PATH=$EXPLORA_HOME/bin:$PATH
 
 # My stuff ...
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/bielefeldt/Explora/ConfigsRepo/fopi_testscript/dicts/
+
+# Local G4 installation (not the allsources one)
+#source ${HOME}/Geant4/install/bin/geant4.sh
+
+# GENFIT is now needed
+export GENFIT=/localhome/bielefeldt/GenFit2/build/
+export LD_LIBRARY_PATH=${GENFIT}/lib/:${LD_LIBRARY_PATH}
 
 # Allow linking against explora
 export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$EXPLORA_HOME/lib/
@@ -38,10 +45,9 @@ else
 	echo -e "\n [!] Could not find thistr16.sh! This is NOT EXPECTED! \n"
 fi
 
-# I'll just add Geant4 here ...
-source ${HOME}/Geant4/install/bin/geant4.sh
-
 # Be a bit verbose
 echo -e "\nDone. \n
-  EXPLORA_HOME : Set Explora home to $EXPLORA_HOME 
-  ROOTSYS : ROOT directory is in $ROOTSYS \n "
+  set Explora directory: EXPLORA_HOME=${EXPLORA_HOME} 
+  set Geant 3: G3SYS=${G3SYS} 
+  set Genfit 2 path: GENFIT=${GENFIT} 
+  ROOTSYS : ROOT directory is in $ROOTSYS "
