@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+################################################################################
+# All the stuff that Explora asks you to put in .bashrc (copied), so that one  #
+# can decide for each shell whether or not this should become an explora shell #
+#                                                                              #
+# Use 'source <thisfile>' to load it.                                          #
+#                                                                              #
+# Execute before using Explora. Or, add it to your .bashrc ...                 #
+#                                                                              #
+# (c) Philipp Bielefeldt, 2019                                                 #
+################################################################################
+
+export GEANT4PATH=$HOME/Geant4/install
+#export GEANT4_BUILD_PATH=$HOME/Geant4/build
+source ${GEANT4PATH}/bin/geant4.sh
