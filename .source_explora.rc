@@ -26,7 +26,7 @@ export PATH=${EXPLORA_HOME}/bin:${PATH}
 # GENFIT is now needed
 export GENFIT=/localhome/bielefeldt/GenFit2/lib64/
 export GENFIT_INCDIR=§{GENFIT}/../include/
-export LD_LIBRARY_PATH=${GENFIT}:${LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=${GENFIT}:${LD_LIBRARY_PATH}
 
 
 # Allow linking against explora
