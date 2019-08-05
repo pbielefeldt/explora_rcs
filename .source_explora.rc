@@ -24,9 +24,10 @@ export LD_LIBRARY_PATH=${EXPLORA_HOME}/lib:${LD_LIBRARY_PATH}
 export PATH=${EXPLORA_HOME}/bin:${PATH}
 
 # GENFIT is now needed
-export GENFIT=/localhome/bielefeldt/GenFit2/build/
-export GENFIT_INCDIR=/localhome/bielefeldt/GenFit2/include/
-export LD_LIBRARY_PATH=${GENFIT}/lib/:${LD_LIBRARY_PATH}
+export GENFIT=/localhome/bielefeldt/GenFit2/lib64/
+export GENFIT_INCDIR=§{GENFIT}/../include/
+export LD_LIBRARY_PATH=${GENFIT}:${LD_LIBRARY_PATH
+
 
 # Allow linking against explora
 export CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}:${EXPLORA_HOME}/lib/
