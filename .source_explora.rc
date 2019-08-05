@@ -12,29 +12,29 @@
 ################################################################################
 
 # EXPLORA defaults (change to your liking ...)
-#export EXPLORA_PATH=$HOME/Explora
 export EXPLORA_HOME=$HOME/Explora/explora_home/
 export EXPLORA_ALLSOURCES=/localhome/$USER/allsources/install/
+
+export LD_LIBRARY_PATH=${EXPLORA_HOME}/lib:${LD_LIBRARY_PATH}
+export PATH=${EXPLORA_HOME}/bin:${PATH}
+export CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}:${EXPLORA_HOME}/lib/
+
 
 # Local G4 installation (not the allsources one)
 #source ${HOME}/Geant4/install/bin/geant4.sh
 #export G3SYS=${EXPLORA_ALLSOURCES}/share/Geant3-2.6.0/
 
-export LD_LIBRARY_PATH=${EXPLORA_HOME}/lib:${LD_LIBRARY_PATH}
-export PATH=${EXPLORA_HOME}/bin:${PATH}
 
-# GENFIT is now needed
+# GENFIT installation
 export GENFIT=/localhome/bielefeldt/GenFit2/lib64/
-export GENFIT_INCDIR=§{GENFIT}/../include/
+export GENFIT_INCDIR=${GENFIT}/../include/
 export LD_LIBRARY_PATH=${GENFIT}:${LD_LIBRARY_PATH}
 
-
-# Allow linking against explora
-export CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}:${EXPLORA_HOME}/lib/
 
 # clhep is somewhat scattered in allsources
 export CLHEP_INCLUDE_DIR=/localhome/bielefeldt/allsources/build/Source/geant4/source/externals/clhep/include/
 export CLHEP_LIBRARY=/localhome/bielefeldt/allsources/build/Build/clhep/lib/
+
 
 # Source thistr16 configuration for allsources environment
 if test -e $EXPLORA_ALLSOURCES/thistr16.sh; then
@@ -43,6 +43,7 @@ if test -e $EXPLORA_ALLSOURCES/thistr16.sh; then
 else
 	echo -e "\n [!] Could not find thistr16.sh! This is NOT EXPECTED! \n"
 fi
+
 
 # Be a bit verbose
 echo -e "\nDone. \n
